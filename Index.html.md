@@ -1,0 +1,160 @@
+<!DOCTYPE html>  
+<html lang=**"**ar**"** dir=**"**rtl**"**>  
+<head>  
+    <meta charset=**"**UTF-8**"**>  
+    <meta name=**"**viewport**"** content=**"**width=device-width, initial-scale=1.0**"**>  
+    <title>**مفاجأة** **لبنين**</title>  
+    <style>  
+        body {  
+            margin**:** 0;  
+            padding**:** 0;  
+            background-color**:** #0b0c10;  
+            color**:** #c5c6c7;  
+            font-family**:** **'**Segoe UI**'**, Tahoma, Geneva, Verdana, sans-serif;  
+            display**:** flex;  
+            justify-content**:** center;  
+            align-items**:** center;  
+            height**:** 100vh;  
+            overflow**:** hidden;  
+            text-align**:** center;  
+        }  
+  
+        /* **تأثير** **النجوم** **في** **الخلفية** */  
+        .stars {  
+            position**:** absolute;  
+            top**:** 0;  
+            left**:** 0;  
+            width**:** 100%;  
+            height**:** 100%;  
+            z-index**:** -1;  
+            background**:** transparent;  
+        }  
+          
+        .star {  
+            position**:** absolute;  
+            background-color**:** white;  
+            border-radius**:** 50%;  
+            animation**:** twinkle infinite alternate;  
+        }  
+  
+        @keyframes twinkle {  
+            0% { opacity**:** 0.2; transform**:** scale**(**0.8**)**; }  
+            100% { opacity**:** 1; transform**:** scale**(**1.2**)**; box-shadow**:** 0 0 10px white; }  
+        }  
+  
+        /* **تصميم** **الحاوية** **الرئيسية** */  
+        .container {  
+            z-index**:** 1;  
+            padding**:** 20px;  
+        }  
+  
+        /* **تصميم** **الزر** */  
+        button {  
+            background**:** transparent;  
+            color**:** #66fcf1;  
+            border**:** 2px solid #66fcf1;  
+            padding**:** 15px 40px;  
+            font-size**:** 24px;  
+            font-weight**:** bold;  
+            border-radius**:** 30px;  
+            cursor**:** pointer;  
+            transition**:** all 0.3s ease;  
+            box-shadow**:** 0 0 15px rgba**(**102, 252, 241, 0.4**)**;  
+        }  
+  
+        button**:**hover {  
+            background**:** #66fcf1;  
+            color**:** #0b0c10;  
+            box-shadow**:** 0 0 30px rgba**(**102, 252, 241, 0.8**)**;  
+            transform**:** scale**(**1.05**)**;  
+        }  
+  
+        /* **تصميم** **الرسالة** **المخفية** */  
+        #messageBox {  
+            display**:** none;  
+            opacity**:** 0;  
+            transition**:** opacity 2s ease-in-out;  
+        }  
+  
+        h1 {  
+            color**:** #66fcf1;  
+            font-size**:** 2.5em;  
+            margin-bottom**:** 20px;  
+            text-shadow**:** 0 0 10px rgba**(**102, 252, 241, 0.5**)**;  
+        }  
+  
+        p {  
+            font-size**:** 1.5em;  
+            line-height**:** 1.8;  
+            color**:** #ffffff;  
+            max-width**:** 600px;  
+            margin**:** 0 auto;  
+        }  
+    </style>  
+</head>  
+<body>  
+  
+    <!-- **ملف** **الصوت** **المخفي** -->  
+    <!-- **تأكد** **إنك** **تخلي** **ملف** **الأغنية** **بنفس** **الفولدر** **وتسميه** song.mp3 -->  
+    <audio id=**"**bgMusic**"** src=**"**song.mp3**"** preload=**"**auto**"**></audio>  
+  
+    <!-- **خلفية** **النجوم** -->  
+    <div class=**"**stars**"** id=**"**starsContainer**"**></div>  
+  
+    <div class=**"**container**"**>  
+        <!-- **الزر** **اللي** **يظهر** **بالبداية** -->  
+        <button id=**"**mainButton**"** onclick=**"**showMessage**()"**>**اضغطي** **هنا** **يا** **بنين** ✨</button>  
+  
+        <!-- **الرسالة** **اللي** **تظهر** **بعد** **الضغط** -->  
+        <div id=**"**messageBox**"**>  
+            <h1>**إلى** **نجمتي** **المفضلة**..</h1>  
+            <p>  
+                **اليوم** **ليس** **تاريخاً** **استثنائياً** **في** **التقويم،** **ولا** **يوافق** **مناسبةً** **عالمية**... <br>  
+                **لكنني** **أردتُ** **أن** **أخبركِ** **أن** **كل** **يومٍ** **يمر** **وأنتِ** **في** **حياتي،** **هو** **يومٌ** **استثنائيٌ** **بالنسبة** **لي**.<br>  
+                **أنتِ** **النور** **الذي** **يضيء** **أيامي،** **تماماً** **كما** **تفعل** **هذه** **النجوم**.<br>  
+                **أردتُ** **مفاجأتكِ** **فقط** **لأقول:** **أحبكِ** **يا** **بنين** 🖤  
+            </p>  
+        </div>  
+    </div>  
+  
+    <script>  
+        // **إنشاء** **النجوم** **بشكل** **عشوائي** **في** **الخلفية**  
+        const starsContainer = document.getElementById**('**starsContainer**')**;  
+        for **(**let i = 0; i < 150; i++**)** {  
+            let star = document.createElement**('**div**')**;  
+            star.className = **'**star**'**;  
+              
+            // **أحجام** **وأماكن** **عشوائية**  
+            let size = Math.random**()** * 3;  
+            star.style.width = size + **'**px**'**;  
+            star.style.height = size + **'**px**'**;  
+            star.style.left = Math.random**()** * 100 + **'**vw**'**;  
+            star.style.top = Math.random**()** * 100 + **'**vh**'**;  
+              
+            // **سرعة** **وميض** **عشوائية**  
+            star.style.animationDuration = **(**Math.random**()** * 3 + 1**)** + **'**s**'**;  
+              
+            starsContainer.appendChild**(**star**)**;  
+        }  
+  
+        // **دالة** **إظهار** **الرسالة** **وتشغيل** **الموسيقى**  
+        function showMessage**()** {  
+            const button = document.getElementById**('**mainButton**')**;  
+            const messageBox = document.getElementById**('**messageBox**')**;  
+            const music = document.getElementById**('**bgMusic**')**;  
+  
+            // **إخفاء** **الزر**  
+            button.style.display = **'**none**'**;  
+  
+            // **تشغيل** **الأغنية**  
+            music.play**()**;  
+  
+            // **إظهار** **الرسالة** **بتأثير** **التلاشي**  
+            messageBox.style.display = **'**block**'**;  
+            setTimeout**(()** => {  
+                messageBox.style.opacity = **'**1**'**;  
+            }, 100**)**;  
+        }  
+    </script>  
+</body>  
+</html>  
